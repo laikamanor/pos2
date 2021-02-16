@@ -449,6 +449,7 @@
     <Compile Include="API Class\Payment Type\paymenttype_class.cs" />
     <Compile Include="API Class\POS\sales_class.cs" />
     <Compile Include="API Class\Reports\finalCount_class.cs" />
+    <Compile Include="API Class\SOA\soa_class.cs" />
     <Compile Include="API Class\Transfer\transfer_class.cs" />
     <Compile Include="API Class\User\user_clas.cs" />
     <Compile Include="API Class\Warehouse\warehouse_class.cs" />
@@ -566,6 +567,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsPullOut.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Dataset\dsSOA.cs">
+      <DependentUpon>dsSOA.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Dataset\dsSOA.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsSOA.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Dataset\PaymentMethod.cs">
       <DependentUpon>PaymentMethod.xsd</DependentUpon>
     </Compile>
@@ -596,6 +605,18 @@
     </Compile>
     <Compile Include="EditUOMGroup.Designer.cs">
       <DependentUpon>EditUOMGroup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="printSOA.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="printSOA.Designer.cs">
+      <DependentUpon>printSOA.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SOA_crystalReports.cs">
+      <DependentUpon>SOA_crystalReports.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="EnterAmount.cs">
       <SubType>Form</SubType>
@@ -1073,6 +1094,24 @@
     <Compile Include="SignalRRR.Designer.cs">
       <DependentUpon>SignalRRR.cs</DependentUpon>
     </Compile>
+    <Compile Include="ForSOA.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ForSOA.Designer.cs">
+      <DependentUpon>ForSOA.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SOA.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SOA.Designer.cs">
+      <DependentUpon>SOA.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SOA_Details.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SOA_Details.Designer.cs">
+      <DependentUpon>SOA_Details.cs</DependentUpon>
+    </Compile>
     <Compile Include="SummaryDeposit_Details.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1240,6 +1279,13 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EditUOMGroup.resx">
       <DependentUpon>EditUOMGroup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="printSOA.resx">
+      <DependentUpon>printSOA.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SOA_crystalReports.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>SOA_crystalReports.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="EnterAmount.resx">
       <DependentUpon>EnterAmount.cs</DependentUpon>
@@ -1528,6 +1574,15 @@
     <EmbeddedResource Include="SignalRRR.resx">
       <DependentUpon>SignalRRR.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ForSOA.resx">
+      <DependentUpon>ForSOA.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SOA.resx">
+      <DependentUpon>SOA.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SOA_Details.resx">
+      <DependentUpon>SOA_Details.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SummaryDeposit_Details.resx">
       <DependentUpon>SummaryDeposit_Details.cs</DependentUpon>
     </EmbeddedResource>
@@ -1588,6 +1643,17 @@
     </None>
     <None Include="Dataset\dsPullOut.xss">
       <DependentUpon>dsPullOut.xsd</DependentUpon>
+    </None>
+    <None Include="Dataset\dsSOA.xsc">
+      <DependentUpon>dsSOA.xsd</DependentUpon>
+    </None>
+    <None Include="Dataset\dsSOA.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsSOA.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Dataset\dsSOA.xss">
+      <DependentUpon>dsSOA.xsd</DependentUpon>
     </None>
     <None Include="Dataset\PaymentMethod.xsc">
       <DependentUpon>PaymentMethod.xsd</DependentUpon>

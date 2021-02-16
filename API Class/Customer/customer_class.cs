@@ -41,75 +41,90 @@ namespace AB.API_Class.Customer
                     client.Timeout = -1;
                     //string branch = (cmbBranch.Text.Equals("") || cmbBranch.Text == "All" ? "" : cmbBranch.Text);
                     var request = new RestRequest("/api/customer/get_all" + appendURL);
+                    Console.WriteLine("/api/customer/get_all" + appendURL);
                     request.AddHeader("Authorization", "Bearer " + token);
                     var response = client.Execute(request);
-                    JObject jObject = new JObject();
-                    jObject = JObject.Parse(response.Content.ToString());
+                    if (response.ErrorMessage == null)
+                    {
+                        if (response.Content.Substring(0, 1).Equals("{"))
+                        {
+                            JObject jObject = new JObject();
+                            jObject = JObject.Parse(response.Content.ToString());
 
-                    bool isSuccess = false;
-                    foreach (var x in jObject)
-                    {
-                        if (x.Key.Equals("success"))
-                        {
-                            isSuccess = Convert.ToBoolean(x.Value.ToString());
-                        }
-                    }
-                    if (isSuccess)
-                    {
-                        foreach (var x in jObject)
-                        {
-                            if (x.Key.Equals("data"))
+                            bool isSuccess = false;
+                            foreach (var x in jObject)
                             {
-                                JArray jsonArray = JArray.Parse(x.Value.ToString());
-                                for (int i = 0; i < jsonArray.Count(); i++)
+                                if (x.Key.Equals("success"))
                                 {
-                                    JObject data = JObject.Parse(jsonArray[i].ToString());
-                                    string code = "", name = "";
-                                    int id = 0, custType = 0;
-                                    foreach (var q in data)
-                                    {
-                                        if (q.Key.Equals("id"))
-                                        {
-                                            id = string.IsNullOrEmpty(q.Value.ToString()) ? 0 : Convert.ToInt32(q.Value.ToString());
-                                        }
-                                     else if (q.Key.Equals("code"))
-                                        {
-                                            code = q.Value.ToString();
-                                        }
-                                        else if (q.Key.Equals("name"))
-                                        {
-                                            name = q.Value.ToString();
-                                        }
-                                        else if (q.Key.Equals("cust_type"))
-                                        {
-                                            custType = Convert.ToInt32(q.Value.ToString());
-                                        }
-                                    }
-                                    dt.Rows.Add(id, code, name,custType);
+                                    isSuccess = Convert.ToBoolean(x.Value.ToString());
                                 }
                             }
+                            if (isSuccess)
+                            {
+                                foreach (var x in jObject)
+                                {
+                                    if (x.Key.Equals("data"))
+                                    {
+                                        JArray jsonArray = JArray.Parse(x.Value.ToString());
+                                        for (int i = 0; i < jsonArray.Count(); i++)
+                                        {
+                                            JObject data = JObject.Parse(jsonArray[i].ToString());
+                                            string code = "", name = "";
+                                            int id = 0, custType = 0;
+                                            foreach (var q in data)
+                                            {
+                                                if (q.Key.Equals("id"))
+                                                {
+                                                    id = string.IsNullOrEmpty(q.Value.ToString()) ? 0 : Convert.ToInt32(q.Value.ToString());
+                                                }
+                                                else if (q.Key.Equals("code"))
+                                                {
+                                                    code = q.Value.ToString();
+                                                }
+                                                else if (q.Key.Equals("name"))
+                                                {
+                                                    name = q.Value.ToString();
+                                                }
+                                                else if (q.Key.Equals("cust_type"))
+                                                {
+                                                    custType = Convert.ToInt32(q.Value.ToString());
+                                                }
+                                            }
+                                            dt.Rows.Add(id, code, name, custType);
+                                        }
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                string msg = "No message response found";
+                                foreach (var x in jObject)
+                                {
+                                    if (x.Key.Equals("message"))
+                                    {
+                                        msg = x.Value.ToString();
+                                    }
+                                }
+                                if (msg.Equals("Token is invalid"))
+                                {
+                                    MessageBox.Show("Your login session is expired. Please login again", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                }
+                                else
+                                {
+                                    MessageBox.Show(msg, "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                }
+                            }
+                            Cursor.Current = Cursors.Default;
+                        }
+                        else
+                        {
+                            MessageBox.Show(response.Content, "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
                     }
                     else
                     {
-                        string msg = "No message response found";
-                        foreach (var x in jObject)
-                        {
-                            if (x.Key.Equals("message"))
-                            {
-                                msg = x.Value.ToString();
-                            }
-                        }
-                        if (msg.Equals("Token is invalid"))
-                        {
-                            MessageBox.Show("Your login session is expired. Please login again", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        }
-                        else
-                        {
-                            MessageBox.Show(msg, "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        }
+                        MessageBox.Show(response.ErrorMessage, "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
-                    Cursor.Current = Cursors.Default;
                 }   
             }
             return dt;

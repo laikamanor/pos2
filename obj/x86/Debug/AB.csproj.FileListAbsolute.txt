@@ -349,4 +349,7 @@ C:\Users\admin\Documents\Visual Studio 2015\Projects\AB\obj\x86\Debug\AB.exe
 C:\Users\admin\Documents\Visual Studio 2015\Projects\AB\obj\x86\Debug\AB.pdb
 C:\Users\admin\Documents\Visual Studio 2015\Projects\AB\obj\x86\Debug\AB.asyncccccccccc.resources
 C:\Users\admin\Documents\Visual Studio 2015\Projects\AB\obj\x86\Debug\AB.Form2.resources
-C:\Users\admin\Documents\Visual Studio 2015\Projects\AB\obj\x86\Debug\AB.csprojResolveAssemblyReference.cache
+C:\Users\admin\Documents\Visual Studio 2015\Projects\AB\obj\x86\Debug\AB.ForSOA.resources
+C:\Users\admin\Documents\Visual Studio 2015\Projects\AB\obj\x86\Debug\AB.SOA.resources
+C:\Users\admin\Documents\Visual Studio 2015\Projects\AB\obj\x86\Debug\AB.printSOA.resources
+C:\Users\admin\Documents\Visual Studio 2015\Projects\AB\obj\x86\Debug\AB.SOA_Details.resources

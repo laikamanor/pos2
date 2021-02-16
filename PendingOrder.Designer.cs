@@ -60,6 +60,12 @@
             this.panelAgentSalesSAPIP = new System.Windows.Forms.Panel();
             this.tpCustomerLedger = new System.Windows.Forms.TabPage();
             this.panelPerCustomer = new System.Windows.Forms.Panel();
+            this.tpSOA = new System.Windows.Forms.TabPage();
+            this.tcSOA = new System.Windows.Forms.TabControl();
+            this.tabForSOA = new System.Windows.Forms.TabPage();
+            this.tabSOA = new System.Windows.Forms.TabPage();
+            this.panelForSOA = new System.Windows.Forms.Panel();
+            this.panelSOA = new System.Windows.Forms.Panel();
             this.tabControl1.SuspendLayout();
             this.tpCashSales.SuspendLayout();
             this.tcCashSales.SuspendLayout();
@@ -79,6 +85,10 @@
             this.tabPage3.SuspendLayout();
             this.tpAgentSalesSAPIP.SuspendLayout();
             this.tpCustomerLedger.SuspendLayout();
+            this.tpSOA.SuspendLayout();
+            this.tcSOA.SuspendLayout();
+            this.tabForSOA.SuspendLayout();
+            this.tabSOA.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -90,6 +100,7 @@
             this.tabControl1.Controls.Add(this.tpARSales);
             this.tabControl1.Controls.Add(this.tpAgentSales);
             this.tabControl1.Controls.Add(this.tpCustomerLedger);
+            this.tabControl1.Controls.Add(this.tpSOA);
             this.tabControl1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl1.Location = new System.Drawing.Point(12, 5);
             this.tabControl1.Name = "tabControl1";
@@ -438,6 +449,75 @@
             this.panelPerCustomer.Size = new System.Drawing.Size(1174, 477);
             this.panelPerCustomer.TabIndex = 1;
             // 
+            // tpSOA
+            // 
+            this.tpSOA.Controls.Add(this.tcSOA);
+            this.tpSOA.Location = new System.Drawing.Point(4, 25);
+            this.tpSOA.Name = "tpSOA";
+            this.tpSOA.Padding = new System.Windows.Forms.Padding(3);
+            this.tpSOA.Size = new System.Drawing.Size(1198, 497);
+            this.tpSOA.TabIndex = 4;
+            this.tpSOA.Text = "SOA";
+            this.tpSOA.UseVisualStyleBackColor = true;
+            // 
+            // tcSOA
+            // 
+            this.tcSOA.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tcSOA.Controls.Add(this.tabForSOA);
+            this.tcSOA.Controls.Add(this.tabSOA);
+            this.tcSOA.Location = new System.Drawing.Point(6, 6);
+            this.tcSOA.Name = "tcSOA";
+            this.tcSOA.SelectedIndex = 0;
+            this.tcSOA.Size = new System.Drawing.Size(1186, 483);
+            this.tcSOA.TabIndex = 1;
+            this.tcSOA.SelectedIndexChanged += new System.EventHandler(this.tabControl2_SelectedIndexChanged);
+            // 
+            // tabForSOA
+            // 
+            this.tabForSOA.Controls.Add(this.panelForSOA);
+            this.tabForSOA.Location = new System.Drawing.Point(4, 25);
+            this.tabForSOA.Name = "tabForSOA";
+            this.tabForSOA.Padding = new System.Windows.Forms.Padding(3);
+            this.tabForSOA.Size = new System.Drawing.Size(1178, 454);
+            this.tabForSOA.TabIndex = 0;
+            this.tabForSOA.Text = "For SOA";
+            this.tabForSOA.UseVisualStyleBackColor = true;
+            // 
+            // tabSOA
+            // 
+            this.tabSOA.Controls.Add(this.panelSOA);
+            this.tabSOA.Location = new System.Drawing.Point(4, 25);
+            this.tabSOA.Name = "tabSOA";
+            this.tabSOA.Padding = new System.Windows.Forms.Padding(3);
+            this.tabSOA.Size = new System.Drawing.Size(1178, 454);
+            this.tabSOA.TabIndex = 1;
+            this.tabSOA.Text = "SOA";
+            this.tabSOA.UseVisualStyleBackColor = true;
+            // 
+            // panelForSOA
+            // 
+            this.panelForSOA.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelForSOA.AutoScroll = true;
+            this.panelForSOA.Location = new System.Drawing.Point(6, 4);
+            this.panelForSOA.Name = "panelForSOA";
+            this.panelForSOA.Size = new System.Drawing.Size(1166, 447);
+            this.panelForSOA.TabIndex = 1;
+            // 
+            // panelSOA
+            // 
+            this.panelSOA.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelSOA.AutoScroll = true;
+            this.panelSOA.Location = new System.Drawing.Point(6, 4);
+            this.panelSOA.Name = "panelSOA";
+            this.panelSOA.Size = new System.Drawing.Size(1166, 447);
+            this.panelSOA.TabIndex = 2;
+            // 
             // PendingOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -470,6 +550,10 @@
             this.tabPage3.ResumeLayout(false);
             this.tpAgentSalesSAPIP.ResumeLayout(false);
             this.tpCustomerLedger.ResumeLayout(false);
+            this.tpSOA.ResumeLayout(false);
+            this.tcSOA.ResumeLayout(false);
+            this.tabForSOA.ResumeLayout(false);
+            this.tabSOA.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -507,5 +591,11 @@
         private System.Windows.Forms.Panel panelAgentSalesSAPIP;
         private System.Windows.Forms.TabPage tpCustomerLedger;
         private System.Windows.Forms.Panel panelPerCustomer;
+        private System.Windows.Forms.TabPage tpSOA;
+        private System.Windows.Forms.TabControl tcSOA;
+        private System.Windows.Forms.TabPage tabForSOA;
+        private System.Windows.Forms.TabPage tabSOA;
+        private System.Windows.Forms.Panel panelForSOA;
+        private System.Windows.Forms.Panel panelSOA;
     }
 }

@@ -63,7 +63,7 @@ namespace AB
             }
         }
 
-        private void SalesTransactions_Load(object sender, EventArgs e)
+        private async void SalesTransactions_Load(object sender, EventArgs e)
         {
             dtBranch = new DataTable();
             dtSearch = new DataTable();
@@ -73,9 +73,8 @@ namespace AB
             cmbDocStatus.SelectedIndex = 0;
             dtTransDate.Value = DateTime.Now;
             dtTransDate.Visible = false;
-            Task task1 = Task.Factory.StartNew(async () => await loadBranch());
-            Task task2 = Task.Factory.StartNew(async () => await loadWarehouse());
-            Task.WaitAll(task1, task2);
+            await loadBranch();
+            await loadWarehouse();
             loadCustomerType();
             loadData();
             searchFilter();

@@ -123,6 +123,26 @@ namespace AB
                 SalesPerCustomer salesCustomer = new SalesPerCustomer();
                 showForm(panelPerCustomer, salesCustomer);
             }
+            else if (tabControl1.SelectedIndex.Equals(4))
+            {
+                tcSOA.SelectedIndex = 0;
+                ForSOA frm = new ForSOA();
+                showForm(panelForSOA, frm);
+            }
+        }
+
+        private void tabControl2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (tcSOA.SelectedIndex.Equals(0))
+            {
+                ForSOA frm = new ForSOA();
+                showForm(panelForSOA, frm);
+            }
+            else if (tcSOA.SelectedIndex.Equals(1))
+            {
+                SOA frm = new SOA();
+                showForm(panelSOA, frm);
+            }
         }
     }
 }
